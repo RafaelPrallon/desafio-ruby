@@ -19,6 +19,8 @@ class Store
 
   has_many :products
 
+  after_create :add_products
+
   def add_products
     self.import_products(0, 49)
     self.import_products(50, 99)

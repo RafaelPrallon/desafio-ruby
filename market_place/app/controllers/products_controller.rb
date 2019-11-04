@@ -5,9 +5,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    if current_store?
-      @products = current_store.products.paginate(:page => params[:page], :per_page => 10)
-    end
+    @stores = Store.all
   end
 
   def show
